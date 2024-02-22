@@ -5,28 +5,13 @@ An example for how to build a Dockerfile where it executes a file, but the user 
 To build and run the image:
 
 ```bash
-./build.sh && docker run --rm docker-executable-user-test
+./build.sh && docker run --rm docker-executable-with-custom-user-example
 ```
 
 Example output:
 
 ```
-[+] Building 0.1s (9/9) FINISHED                                                                                                                                                                                                                          docker:default
- => [internal] load build definition from Dockerfile                                                                                                                                                                                                                0.0s
- => => transferring dockerfile: 535B                                                                                                                                                                                                                                0.0s
- => [internal] load metadata for docker.io/library/alpine:latest                                                                                                                                                                                                    0.0s
- => [internal] load .dockerignore                                                                                                                                                                                                                                   0.0s
- => => transferring context: 2B                                                                                                                                                                                                                                     0.0s
- => [1/4] FROM docker.io/library/alpine:latest                                                                                                                                                                                                                      0.0s
- => [internal] load build context                                                                                                                                                                                                                                   0.0s
- => => transferring context: 29B                                                                                                                                                                                                                                    0.0s
- => CACHED [2/4] RUN adduser -D myuser && mkdir -p /home/myuser/bin                                                                                                                                                                                                 0.0s
- => CACHED [3/4] WORKDIR /home/myuser/bin                                                                                                                                                                                                                           0.0s
- => CACHED [4/4] COPY --chown=myuser:myuser hello.sh .                                                                                                                                                                                                              0.0s
- => exporting to image                                                                                                                                                                                                                                              0.0s
- => => exporting layers                                                                                                                                                                                                                                             0.0s
- => => writing image sha256:e5bd2aa3882d7f97f50e315713205cbd385d587b1cb11f297bccb56e8d81e2d9                                                                                                                                                                        0.0s
- => => naming to docker.io/library/docker-executable-user-test                                                                                                                                                                                                      0.0s
+...
 Hello, World! I am myuser
 ```
 
