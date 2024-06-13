@@ -1,5 +1,5 @@
 # Use a small, secure base image if possible, like Alpine.
-FROM alpine
+FROM alpine:3.20
 
 # Add a user "myuser" and create the working directory in one command to avoid creating additional layers.
 RUN adduser -D myuser && mkdir -p /home/myuser/bin
@@ -12,4 +12,4 @@ COPY --chown=myuser:myuser hello.sh .
 USER myuser
 
 # Specify the entrypoint script.
-ENTRYPOINT [ "sh", "hello.sh" ]
+ENTRYPOINT [ "./hello.sh" ]
